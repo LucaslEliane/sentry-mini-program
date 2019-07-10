@@ -1,5 +1,5 @@
 {
-  "name": "raven-js",
+  "name": "raven-mini-program",
   "description": "JavaScript client for Sentry",
   "keywords": [
     "debugging",
@@ -9,8 +9,11 @@
     "raven",
     "sentry"
   ],
-  "version": "3.27.0",
-  "repository": "git://github.com/getsentry/raven-js.git",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/getsentry/raven-js.git"
+  },
   "license": "BSD-2-Clause",
   "homepage": "https://github.com/getsentry/raven-js",
   "main": "src/singleton.js",
@@ -48,7 +51,7 @@
     "grunt-gitinfo": "^0.1.7",
     "grunt-release": "^0.13.0",
     "grunt-s3": "0.2.0-alpha.3",
-    "grunt-sri": "mattrobenolt/grunt-sri#pretty",
+    "grunt-sri": "github:mattrobenolt/grunt-sri#pretty",
     "inquirer": "^3.3.0",
     "karma": "^1.7.1",
     "karma-chai": "^0.1.0",
@@ -79,5 +82,13 @@
       "path": "./dist/raven.min.js",
       "maxSize": "10 kB"
     }
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/getsentry/raven-js/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "author": "lucasleliane"
 }
