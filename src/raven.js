@@ -277,7 +277,7 @@ Raven.prototype = {
   _injectWechatContext() {
     var self = this;
     wx.getSystemInfo({
-      success: res => {
+      success: function(res) {
         delete res.errMsg;
 
         self.setTagsContext({
@@ -288,21 +288,26 @@ Raven.prototype = {
         });
 
         self.setExtraContext({
-          ...res
+          brand: res.brand,
+          language: res.language,
+          model: res.model,
+          safeArea: res.safeArea,
+          platform: res.platform,
+          wifiEnabled: res.wifiEnabled
         });
       },
-      fail: err => {
+      fail: function(err) {
 
       }
     });
 
     wx.getNetworkType({
-      success: res => {
+      success: function(res) {
         self.setTagsContext({
           networkType: res.networkType
         });
       },
-      fail: err => {
+      fail: function(err) {
 
       }
     });
@@ -2295,10 +2300,10 @@ Raven.prototype = {
           'content-type': 'text/plain;charset=UTF-8'
         },
         data: stringify(opts.data),
-        success: () => {
+        success: function() {
           opts.onSuccess && opts.onSuccess();
         },
-        fail: err => {
+        fail: function(err) {
           opts.onError && opts.onError(err);
         }
       });
