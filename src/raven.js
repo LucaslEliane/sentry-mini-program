@@ -2330,7 +2330,7 @@ Raven.prototype = {
       (this.debug || this._globalOptions.debug)
     ) {
       // In IE<10 console methods do not have their own 'apply' method
-      Function.prototype.apply.call(
+      Function.prototype.apply && Function.prototype.apply.call(
         this._originalConsoleMethods[level],
         this._originalConsole,
         [].slice.call(arguments, 1)
